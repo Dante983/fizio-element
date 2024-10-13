@@ -1,0 +1,36 @@
+<!-- resources/views/layouts/app.blade.php -->
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- resources/views/layouts/app.blade.php -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>Fizio Element</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url('/') }}">Početna</a></li>
+                <li><a href="{{ url('/about') }}">O nama</a></li>
+                <li><a href="{{ url('/services') }}">Usluge</a></li>
+                <li><a href="{{ url('/schedule') }}">Zakažite termin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        @yield('content') <!-- Content specific to each page goes here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Fizio Element. Sva prava zadržana.</p>
+    </footer>
+</body>
+
+</html>
