@@ -11,13 +11,12 @@
         </div>
     @endif
 
-    <table class="table">
+    <table class="table custom-table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Pacijent</th>
                 <th>Opis</th>
-                <th>Iznos</th>
                 <th>Datum izdavanja</th>
                 <th>Akcije</th>
             </tr>
@@ -28,7 +27,6 @@
                 <td>{{ $receipt->id }}</td>
                 <td>{{ $receipt->patient->name }}</td>
                 <td>{{ $receipt->description }}</td>
-                <td>{{ $receipt->amount }}</td>
                 <td>{{ $receipt->issue_date }}</td>
                 <td>
                     <a href="{{ route('receipts.show', $receipt) }}" class="btn btn-sm btn-info">Prikaži</a>

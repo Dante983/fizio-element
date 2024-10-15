@@ -1,6 +1,7 @@
 <!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="sr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Fizio Element</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -19,10 +21,10 @@
                 @guest
                     <li><a href="{{ route('login') }}">Prijava</a></li>
                 @else
-                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ route('patients.index') }}">Dashboard</a></li>
                     <li>
                         <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
+                            onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                             Odjava
                         </a>
@@ -41,4 +43,5 @@
         <p>&copy; 2024 Fizio Element. Sva prava zadržana.</p>
     </footer>
 </body>
+
 </html>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Računi za pacijenta: {{ $patient->name }}</h2>
-    <table class="table">
+    <table class="table custom-table">
         <thead>
             <tr>
                 <th>ID</th>

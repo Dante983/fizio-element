@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ReceiptController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

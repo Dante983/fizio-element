@@ -74,7 +74,7 @@ class ReceiptController extends Controller
 
     public function show(Receipt $receipt)
     {
-        return view('receipts.show', compact('receipts'));
+        return view('receipts.show', compact('receipt'));
     }
 
     public function edit(Receipt $receipt)
