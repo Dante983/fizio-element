@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Patient;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
@@ -12,10 +13,22 @@ class PatientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $patients = Patient::all();
-        return view('patients.index', compact('patients'));
+        $query = Patient::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('jmbg', 'like', '%' . $search . '%');
+            });
+        }
+        $appointments = Appointment::with('patient')->whereDate('appointment_time', now()->toDateString())->get();
+
+        $patients = $query->paginate(10); // Adjust the number of items per page as needed
+
+        return view('patients.index', compact('patients', 'appointments'));
     }
 
     /**

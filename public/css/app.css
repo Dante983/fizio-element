@@ -267,3 +267,22 @@ footer p {
     font-size: 14px;
     color: #666;
 }
+
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-inline .form-group {
+    margin-bottom: 10px;
+}
+
+.form-inline .form-control {
+    width: auto;
+    display: inline-block;
+}
+
+.form-inline .btn {
+    margin-left: 10px;
+}

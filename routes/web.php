@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ReceiptController;
@@ -56,4 +57,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patients/{patient}/receipts', [PatientController::class, 'showReceipts'])->name('patients.receipts');
     Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');
     Route::post('/patients', [PatientController::class, 'store'])->name('patients.store');
+
+    Route::resource('appointments', AppointmentController::class);
 });
