@@ -4,8 +4,8 @@
 @section('content')
     <div class="container">
         <div class="profile">
-            <img src="/images/miroslav.jpg" alt="Miroslav" class="profile-image">
-            <h1>O Miroslavu</h1>
+            <img src={{ asset('images/profile-image.jpg') }} alt="Miroslav" class="profile-image">
+            <h1>Miroslav Knezevic</h1>
             <p>
                 Miroslav je posvećeni fizijatar i vlasnik Fizio Element klinike. Sa godinama iskustva u fizikalnoj terapiji
                 i rehabilitaciji, pomogao je brojnim pacijentima da se oporave od povreda, upravljaju bolom i poboljšaju
@@ -22,12 +22,12 @@
 <!-- CSS -->
 <style>
     .profile {
-        text-align: center;
-        padding: 50px;
+        /* text-align: center; */
+        /* padding: 50px; */
     }
 
     .profile-image {
-        width: 200px;
-        border-radius: 50%;
+        /* width: 200px; */
+        /* border-radius: 50%; */
     }
 </style>
