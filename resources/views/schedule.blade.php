@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="container">
-    <h1>Zakažite termin</h1>
+    <h1>Postavite pitanje ili zatražite termin</h1>
 
-    <form action="{{ route('appointments.store') }}" method="POST"> <!-- Using route name here -->
+    <form action="{{ route('appointments.request') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="name">Ime i prezime</label>
@@ -16,14 +16,14 @@
             <input type="email" id="email" name="email" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="date">Preferirani datum termina</label>
-            <input type="date" id="date" name="date" class="form-control" required>
+            <label for="subject">Naslov</label>
+            <input type="text" id="subject" name="subject" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="message">Pitanja ili napomene</label>
-            <textarea id="message" name="message" class="form-control"></textarea>
+            <label for="message">Pitanje ili zahtev za termin</label>
+            <textarea id="message" name="message" class="form-control" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Zakaži termin</button>
+        <button type="submit" class="btn btn-primary">Pošalji</button>
     </form>
 
     @if(session('success'))

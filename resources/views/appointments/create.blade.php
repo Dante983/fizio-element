@@ -1,32 +1,29 @@
-
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <h2>Create Appointment</h2>
+    <h2>Kreiraj termin za pacijenta</h2>
 
     <form action="{{ route('appointments.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="patient_id">Patient</label>
-            <select name="patient_id" class="form-control">
-                @foreach($patients as $patient)
-                    <option value="{{ $patient->id }}">{{ $patient->name }}</option>
-                @endforeach
-            </select>
+            <label for="patient_name">Ime pacijenta</label>
+            <input type="text" id="patient_name" name="patient_name" class="form-control" required>
         </div>
-
         <div class="form-group">
-            <label for="appointment_time">Appointment Time</label>
-            <input type="datetime-local" name="appointment_time" class="form-control" required>
+            <label for="date">Datum termina</label>
+            <input type="date" id="date" name="date" class="form-control" required>
         </div>
-
         <div class="form-group">
-            <label for="notes">Notes</label>
-            <textarea name="notes" class="form-control"></textarea>
+            <label for="time">Vreme termina</label>
+            <input type="time" id="time" name="time" class="form-control" required>
         </div>
-
-        <button type="submit" class="btn btn-success">Create</button>
+        <div class="form-group">
+            <label for="notes">Napomene</label>
+            <textarea id="notes" name="notes" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Kreiraj termin</button>
     </form>
 </div>
 @endsection
+

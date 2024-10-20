@@ -24,7 +24,7 @@ class PatientController extends Controller
                     ->orWhere('jmbg', 'like', '%' . $search . '%');
             });
         }
-        $appointments = Appointment::with('patient')->whereDate('appointment_time', now()->toDateString())->get();
+        $appointments = Appointment::whereDate('appointment_time', now()->toDateString())->get();
 
         $patients = $query->paginate(10); // Adjust the number of items per page as needed
 

@@ -6,30 +6,34 @@
 
         <!-- Today's Appointments Section -->
         <div class="mb-5">
-            <h3>Today's Appointments</h3>
-            @if ($appointments->isEmpty())
-                <p>No appointments scheduled for today.</p>
+           <h2>Scheduled Appointments</h2>
+            @if($appointments->isEmpty())
+                <p>No appointments scheduled.</p>
             @else
-                <table class="table custom-table">
-                    <thead>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Appointment Date</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($appointments as $appointment)
                         <tr>
-                            <th>Patient</th>
-                            <th>Time</th>
-                            <th>Notes</th>
+                            <td>{{ $appointment->name }}</td>
+                            <td>{{ $appointment->email }}</td>
+                            <td>{{ $appointment->appointment_time }}</td>
+                            <td>{{ $appointment->notes }}</td>
+                            <td>
+                                <a href="{{ route('appointments.edit', $appointment->id) }}" class="btn btn-sm btn-info">Assign Patient</a>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($appointments as $appointment)
-                            <tr>
-                                <td><a
-                                        href="{{ route('patients.show', $appointment->patient->id) }}">{{ $appointment->patient->name }}</a>
-                                </td>
-                                <td>{{ $appointment->time }}</td>
-                                <td>{{ $appointment->notes }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                    @endforeach
+                </tbody>
+            </table>
             @endif
         </div>
 
